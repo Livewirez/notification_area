@@ -38,7 +38,7 @@ if everything works, you'll get a notification based on the current called funct
 ![Image](/images/default_notification.JPG "Default Notification")
 
 ## Custom Message Notification
-![Image](/images/custom_message_notification_2.JPG "Custom Message Notification"))
+![Image](/images/custom_message_notification.JPG "Custom Message Notification")
 
 ## Usage - Default Notification 
 
