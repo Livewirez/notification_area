@@ -55,7 +55,6 @@ if everything works, you'll get a notification based on the current called funct
 We import the necessary header files like:
 
 * The windows header file `Windows.h` to interface with the windows api
-* The string header file `string.h` for functions like **_snprintf_**
 
 We'll use the [NOTIFYICONDATA](https://learn.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa) struct that Contains information that the system needs to display notifications in the notification area. Used by Shell_NotifyIcon.
 
