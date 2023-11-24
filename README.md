@@ -35,10 +35,10 @@ cargo run
 if everything works, you'll get a notification based on the current called function in the main function
 
 ## Default Notification
-![Image](/images/default_notification.jpg "Default Notification")
+![Image](/images/default_notification.JPG "Default Notification")
 
 ## Custom Message Notification
-![Image](/images/custom_message_notification.jpg "Custom Message Notification"))
+![Image](/images/custom_message_notification.JPG "Custom Message Notification"))
 
 ## Usage - Default Notification 
 
