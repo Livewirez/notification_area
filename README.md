@@ -59,7 +59,9 @@ We import the necessary header files like:
 
 We'll use the [NOTIFYICONDATA](https://learn.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa) struct that Contains information that the system needs to display notifications in the notification area. Used by Shell_NotifyIcon.
 
-We declare this function that will be called from the rust generated executable
+We declare these functions that will be called from the rust generated executable
+
+* The Function with the hardcoded message
 ```c
 __declspec(dllexport) void show_notification() {
     // Initialize the NOTIFYICONDATA structure
@@ -81,6 +83,39 @@ __declspec(dllexport) void show_notification() {
     nid.dwInfoFlags = NIIF_INFO;
     snprintf(nid.szInfo, sizeof(nid.szInfo), "%s", "Hello, this is a notification!");
     snprintf(nid.szInfoTitle, sizeof(nid.szInfoTitle), "%s", "Notification Title");
+    Shell_NotifyIcon(NIM_MODIFY, &nid);
+
+    // Wait for user input (for demonstration purposes)
+    MessageBox(NULL, "Click OK to remove the notification.", "Notification Demo", MB_OK);
+
+    // Remove the notification icon from the system tray
+    Shell_NotifyIcon(NIM_DELETE, &nid);
+}
+
+```
+
+* The Function with the custom message
+```c
+__declspec(dllexport) void show_notification_(const char* message) {
+
+    NOTIFYICONDATA nid;
+
+    nid.cbSize = sizeof(NOTIFYICONDATA);
+    nid.hWnd = GetConsoleWindow();
+    nid.uID = MY_NOTIFICATION_ID;
+    nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
+    nid.uCallbackMessage = WM_USER + 1; // Custom message for notification events
+    nid.hIcon = LoadIcon(NULL, IDI_INFORMATION); // Use a default information icon
+    snprintf(nid.szTip, sizeof(nid.szTip), "%s", "Message");
+
+    // Add the notification icon to the system tray
+    Shell_NotifyIcon(NIM_ADD, &nid);
+
+    // Display a notification balloon
+    nid.uFlags = NIF_INFO;
+    nid.dwInfoFlags = NIIF_INFO;
+    snprintf(nid.szInfo, sizeof(nid.szInfo), "%s", message);
+    snprintf(nid.szInfoTitle, sizeof(nid.szInfoTitle), "%s", "Result");
     Shell_NotifyIcon(NIM_MODIFY, &nid);
 
     // Wait for user input (for demonstration purposes)
