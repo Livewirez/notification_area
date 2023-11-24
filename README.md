@@ -8,7 +8,7 @@ Only on Windows
 
 ## Installation
 
-Make sure you've installed [rust compiler](https://www.rust-lang.org/tools/install) 
+Make sure you've installed the [rust compiler](https://www.rust-lang.org/tools/install) 
 
 After setting up the project 
 
