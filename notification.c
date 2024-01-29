@@ -25,7 +25,7 @@ __declspec(dllexport) void show_notification() {
     nid.uID = MY_NOTIFICATION_ID;
     nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
     nid.uCallbackMessage = WM_USER + 1; // Custom message for notification events
-    nid.hIcon = LoadIcon(NULL, IDI_INFORMATION); // Use a default information icon
+    nid.hIcon = (HICON)LoadImage(NULL, "C:\\Users\\hp\\Downloads\\twitter2x.ico", IMAGE_ICON, 0, 0, LR_LOADFROMFILE); // Use a default information icon
     snprintf(nid.szTip, sizeof(nid.szTip), "%s", "My Notification");
 
     // Add the notification icon to the system tray
@@ -59,7 +59,7 @@ __declspec(dllexport) void show_notification_(const char* message) {
     nid.uID = MY_NOTIFICATION_ID;
     nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
     nid.uCallbackMessage = WM_USER + 1; // Custom message for notification events
-    nid.hIcon = LoadIcon(NULL, IDI_INFORMATION); // Use a default information icon
+    nid.hIcon = (HICON)LoadImage(NULL, "C:\\Users\\hp\\Downloads\\twitter2x.ico", IMAGE_ICON, 0, 0, LR_LOADFROMFILE);  // Use a default information icon
     snprintf(nid.szTip, sizeof(nid.szTip), "%s", "Message");
 
     // Add the notification icon to the system tray
