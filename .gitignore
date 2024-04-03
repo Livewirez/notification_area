@@ -1,2 +1,4 @@
 /target
 notification.dll
+notification.o
+notification.lib
