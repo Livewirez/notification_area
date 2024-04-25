@@ -33,7 +33,7 @@ DLL_EXPORT extern void show_desktop_notification() {
     nid.uCallbackMessage = WM_USER + 1; // Custom message for notification events
     //nid.hIcon = LoadIcon(NULL, IDI_INFORMATION); // Use a default information icon
     nid.hIcon = LoadImage(NULL, IDI_INFORMATION, IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
-    _snprintf(nid.szTip, sizeof(nid.szTip), "%s", "My Notification");
+    snprintf(nid.szTip, sizeof(nid.szTip), "%s", "My Notification");
 
     // Add the notification icon to the system tray
     Shell_NotifyIcon(NIM_ADD, &nid);
@@ -41,8 +41,8 @@ DLL_EXPORT extern void show_desktop_notification() {
     // Display a notification balloon
     nid.uFlags = NIF_INFO;
     nid.dwInfoFlags = NIIF_INFO;
-    _snprintf(nid.szInfo, sizeof(nid.szInfo), "%s", "Hello, this is a notification!");
-    _snprintf(nid.szInfoTitle, sizeof(nid.szInfoTitle), "%s", "Notification Title");
+    snprintf(nid.szInfo, sizeof(nid.szInfo), "%s", "Hello, this is a notification!");
+    snprintf(nid.szInfoTitle, sizeof(nid.szInfoTitle), "%s", "Notification Title");
     Shell_NotifyIcon(NIM_MODIFY, &nid);
 
     // Wait for user input (for demonstration purposes)
@@ -68,7 +68,7 @@ DLL_EXPORT extern void show_desktop_notification_(const char* message) {
     nid.uCallbackMessage = WM_USER + 1; // Custom message for notification events
     //nid.hIcon = LoadIcon(NULL, IDI_INFORMATION); // Use a default information icon
     nid.hIcon = LoadImage(NULL, IDI_INFORMATION, IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
-    _snprintf(nid.szTip, sizeof(nid.szTip), "%s", "Message");
+    snprintf(nid.szTip, sizeof(nid.szTip), "%s", "Message");
 
     // Add the notification icon to the system tray
     Shell_NotifyIcon(NIM_ADD, &nid);
@@ -76,8 +76,8 @@ DLL_EXPORT extern void show_desktop_notification_(const char* message) {
     // Display a notification balloon
     nid.uFlags = NIF_INFO;
     nid.dwInfoFlags = NIIF_INFO;
-    _snprintf(nid.szInfo, sizeof(nid.szInfo), "%s", message);
-    _snprintf(nid.szInfoTitle, sizeof(nid.szInfoTitle), "%s", "Result");
+    snprintf(nid.szInfo, sizeof(nid.szInfo), "%s", message);
+    snprintf(nid.szInfoTitle, sizeof(nid.szInfoTitle), "%s", "Result");
     Shell_NotifyIcon(NIM_MODIFY, &nid);
 
     // Wait for user input (for demonstration purposes)
@@ -103,7 +103,7 @@ DLL_EXPORT extern void show_desktop_notification_prog_name(const char* program_n
     nid.uCallbackMessage = WM_USER + 1; // Custom message for notification events
     //nid.hIcon = LoadIcon(NULL, IDI_INFORMATION); // Use a default information icon
     nid.hIcon = LoadImage(NULL, IDI_INFORMATION, IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
-    _snprintf(nid.szTip, sizeof(nid.szTip), "%s", "Message");
+    snprintf(nid.szTip, sizeof(nid.szTip), "%s", "Message");
 
     // Add the notification icon to the system tray
     Shell_NotifyIcon(NIM_ADD, &nid);
@@ -111,8 +111,8 @@ DLL_EXPORT extern void show_desktop_notification_prog_name(const char* program_n
     // Display a notification balloon
     nid.uFlags = NIF_INFO;
     nid.dwInfoFlags = NIIF_INFO;
-    _snprintf(nid.szInfo, sizeof(nid.szInfo), "%s", message);
-    _snprintf(nid.szInfoTitle, sizeof(nid.szInfoTitle), "%s", program_name);
+    snprintf(nid.szInfo, sizeof(nid.szInfo), "%s", message);
+    snprintf(nid.szInfoTitle, sizeof(nid.szInfoTitle), "%s", program_name);
     Shell_NotifyIcon(NIM_MODIFY, &nid);
 
     // Wait for user input (for demonstration purposes)
